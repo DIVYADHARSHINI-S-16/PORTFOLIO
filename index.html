@@ -61,6 +61,10 @@ span{
     margin-top:20px;
     font-weight:600;
 }
+section{
+    padding-top:140px;
+    padding-bottom:120px;
+}
 
 .neon-hover{
     transition: all 0.35s ease;
@@ -256,7 +260,6 @@ span{
     flex: 1;                       
 }
 
-/* Blue overlay */
 .project-card .overlay{
     position:absolute;
     inset:0;
@@ -273,7 +276,6 @@ span{
     opacity:1;
 }
 
-/* Hover effects */
 .project-card:hover img{
     transform:scale(1.05);
 }
@@ -285,8 +287,11 @@ span{
 /* ================= SERVICES ================= */
 .services-box{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:30px;
+    grid-template-columns:repeat(2, minmax(280px, 1fr));
+    gap:50px;
+    max-width:800px;        /* controls width */
+    margin:0 auto;          /* centers the grid */
+    justify-content:center;
 }
 
 .card{
@@ -301,7 +306,6 @@ span{
     transition:all 0.4s ease;
 }
 
-/* Neon border glow */
 .card::before{
     content:"";
     position:absolute;
@@ -321,7 +325,6 @@ span{
     opacity:1;
 }
 
-/* Icon styling */
 .card i{
     font-size:48px;
     color:#4de6ff;
@@ -330,20 +333,17 @@ span{
     transition:transform 0.4s ease;
 }
 
-/* Title */
 .card h3{
     font-size:22px;
     margin-bottom:12px;
 }
 
-/* Description */
 .card p{
     font-size:14px;
     line-height:1.6;
     opacity:0.85;
 }
 
-/* Hover animation */
 .card:hover{
     transform:translateY(-10px) scale(1.03);
     box-shadow:0 0 35px rgba(77,230,255,0.35);
@@ -409,7 +409,6 @@ span{
     background:#4de6ff;
     color:#1e232b;
 }
-
 }
 
 .overlay-text{
@@ -586,6 +585,127 @@ textarea{
     text-shadow:0 0 8px rgba(77,230,255,0.45);
 }
 
+.event-list{
+    max-width:1000px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+}
+
+.event-row{
+    display:flex;
+    gap:35px;
+    background:rgba(42,48,60,0.85);
+    border-radius:22px;
+    padding:22px;
+    border:1.5px solid rgba(77,230,255,0.35);
+}
+
+.event-row img{
+    width:260px;
+    height:180px;
+    object-fit:cover;
+    border-radius:16px;
+    border:2px solid rgba(77,230,255,0.4);
+}
+
+.event-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.event-type{
+    display:inline-block;
+    width:max-content;
+    padding:6px 14px;
+    border-radius:14px;
+    font-size:12px;
+    font-weight:600;
+    color:#1e232b;
+    background:#4de6ff;
+    margin-bottom:8px;
+}
+
+.event-info h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.event-info p{
+    font-size:14px;
+    line-height:1.6;
+    opacity:0.9;
+    max-width:520px;
+}
+
+.event-date{
+    margin-top:10px;
+    font-size:13px;
+    font-weight:600;
+    color:#9fefff;
+}
+
+.event-date{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    color:#4de6ff;
+    margin-bottom:10px;
+}
+
+.timeline-content p{
+    font-size:14px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+.event-date{
+    display:inline-block;
+    font-size:12px;
+    font-weight:600;
+    color:#4de6ff;
+    margin-bottom:10px;
+}
+
+.timeline-content p{
+    font-size:14px;
+    line-height:1.6;
+    opacity:0.9;
+}
+
+.event-row{
+    transition: 
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border 0.35s ease;
+}
+
+.event-row:hover{
+    transform:translateY(-8px);
+    border:1.5px solid rgba(77,230,255,0.8);
+    box-shadow:
+        0 0 25px rgba(77,230,255,0.45),
+        0 0 45px rgba(77,230,255,0.25);
+}
+
+.event-row img{
+    transition:transform 0.4s ease, filter 0.4s ease;
+}
+
+.event-row:hover img{
+    transform:scale(1.06);
+    filter:brightness(1.1) contrast(1.05);
+}
+
+.event-row:hover .event-info h3{
+    color:#4de6ff;
+}
+
+.event-row:hover .event-info p{
+    opacity:1;
+}
 /* ================= FOOTER ================= */
 footer{
     background:#2a303c;
@@ -596,7 +716,7 @@ footer{
     letter-spacing:0.5px;
     text-shadow:0 0 10px rgba(77,230,255,0.6);
 }
-/* ===== FOOTER ICONS ===== */
+
 .footer-icons{
     margin-top: 12px; 
     margin-bottom:5px;
@@ -619,6 +739,7 @@ footer{
         0 0 18px rgba(77,230,255,1),
         0 0 35px rgba(77,230,255,0.8);
 }
+
 </style>
 </head>
 <body>
@@ -630,6 +751,7 @@ footer{
         <a href="#about">About</a>
         <a href="#services">Skills</a>
         <a href="#achievements">Achievements</a>
+        <a href="#events">Events</a>
         <a href="#portfolio">Projects</a>
         <a href="#contact">Contact</a>
     </nav>
@@ -665,7 +787,6 @@ footer{
         <i class="fa-brands fa-linkedin"></i>
     </a>
 </div>
-
 
         <a href="https://divyadharshini-s-resume.tiiny.site"
            target="_blank"
@@ -706,20 +827,30 @@ footer{
         <div class="card">
             <i class="fa-solid fa-pen-nib"></i>
             <h3>UI / UX Design</h3>
-            <p>Wireframing, prototyping, and user-centered design principles.</p>
+            <p>Creating wireframes and interactive prototypes to visualize ideas early, guided by user-centered design principles that enhance usability and overall user experience.</p>
         </div>
 
         <div class="card">
             <i class="fa-solid fa-code"></i>
             <h3>Web Development</h3>
-            <p>HTML, CSS, JavaScript and responsive design.</p>
+            <p>Building responsive web interfaces using HTML, CSS, and JavaScript, ensuring proper layout structure, styling consistency, and smooth user interactions across devices.</p>
         </div>
 
         <div class="card">
             <i class="fa-solid fa-brain"></i>
             <h3>Programming</h3>
-            <p>Java, Python, C and problem solving.</p>
+            <p>Knowledge of Java, Python, and C, with strong problem-solving abilities and an understanding of core programming concept</p>
         </div>
+        <div class="card">
+    <i class="fa-solid fa-people-arrows"></i>
+    <h3>Soft Skills</h3>
+    <p>
+        Strong team collaboration, clear communication skills, effective
+        time management, adaptability to new technologies, and a
+        continuous learning mindset.
+    </p>
+</div>
+
     </div>
 </section>
 
@@ -749,6 +880,88 @@ footer{
             </div>
         </div>
 
+    </div>
+</section>
+<!-- ================= EVENTS ================= -->
+<section id="events">
+    <h2 class="section-title">Event <span>Participation</span></h2>
+
+    <div class="event-list">
+
+        <div class="event-row">
+            <img src="pic8.png" alt="Web Development Workshop">
+
+            <div class="event-info">
+                <span class="event-type">Coding Event</span>
+                <h3>CTRL+FIX</h3>
+                <p>
+                    CTRL+FIX is a debugging event where we analyzed, identified,
+            and fixed errors in given programs. Our team secured a
+            position in the <strong>Top 5</strong> among all participants.
+                </p>
+                <span class="event-date">2025</span>
+            </div>
+        </div>
+
+        <div class="event-row">
+            <img src="pic9.png" alt="UI/UX Design Seminar">
+
+            <div class="event-info">
+                <span class="event-type">Hackathon</span>
+                <h3>Hacktrix</h3>
+                <p>
+                    <p>
+    Hacktrix is a web development event where we designed and built
+    a functional web page within a limited time. Our team secured
+    a position in the <strong>Top 10</strong> among <strong>30 participating teams</strong>.
+</p>
+
+                </p>
+                <span class="event-date">2025</span>
+            </div>
+        </div>
+
+        <div class="event-row">
+            <img src="pic10.png" alt="College Hackathon">
+
+            <div class="event-info">
+                <span class="event-type">Hackathon</span>
+                <h3>Techsaavy Hackathon</h3>
+                <p>
+                    Worked with a team to design and implement an innovative solution during a competitive hackathon involving participants from various colleges.
+                </p>
+                <span class="event-date">2025</span>
+            </div>
+        </div>
+        <div class="event-row">
+    <img src="pic11.png" alt="Technical Workshop Participation">
+
+    <div class="event-info">
+        <span class="event-type">Hackathon</span>
+        <h3>HP Hackathon</h3>
+        <p>
+            <p>
+    Participated in the HP Hackathon and advanced to
+    <strong>Round 2</strong>, working as a team to address a
+    <strong>real-world problem</strong> with practical solutions.
+</p>
+
+        </p>
+        <span class="event-date">2025</span>
+    </div>
+</div>
+<div class="event-row">
+    <img src="pic12.png" alt="Technology Seminar Participation">
+
+    <div class="event-info">
+        <span class="event-type">Hackathon</span>
+        <h3>Adobe India Hackathon</h3>
+        <p>
+           Participated in <strong>Round 1</strong> of the Adobe Hackathon, where our team applied structured thinking and technical skills to tackle a real-world problem.
+        </p>
+        <span class="event-date">2025</span>
+    </div>
+</div>
     </div>
 </section>
 
@@ -830,7 +1043,7 @@ footer{
 
 <!-- ================= CONTACT ================= -->
 <section class="contact" id="contact">
-    <h2 class="section-title">Contact <span>Me!</span></h2>
+    <h2 class="section-title">Let’s <span>Connect</span></h2>
     <form id="contactForm" action="https://formspree.io/f/xeoybqon" method="POST">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
